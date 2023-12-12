@@ -1,0 +1,23 @@
+name: Build release
+on:
+  push:
+    tags:
+    - '*-*'
+
+jobs:
+  build:
+    name: Run build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure env
+        run: |
+          NAME=$(echo ${{ github.ref }} | cut -d- -f1)
+          NAME=${NAME#"refs/tags/"}
+          VERSION=$(echo ${{ github.ref }} | cut -d- -f2)
+          echo "NAME=$NAME" >> $GITHUB_ENV
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          TAG="$VERSION"
+          echo "TAG=$TAG" >> $GITHUB_ENV
+          echo "NAME:$NAME"
+          echo "TAG:$TAG"
+          echo "VERSION:$VERSION"
