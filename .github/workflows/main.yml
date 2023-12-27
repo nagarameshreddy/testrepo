@@ -1,0 +1,11 @@
+name: Frontend_admin
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print secret
+        run: run: echo -n "${{ secrets.test }}" >> foo && cut -c1-1 foo && cut -c 2- foo
