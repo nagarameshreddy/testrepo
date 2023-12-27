@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print secret
-        run: run: echo -n "${{ secrets.test }}" >> foo && cut -c1-1 foo && cut -c 2- foo
+        run: echo -n "${{ secrets.test }}" >> foo && cut -c1-1 foo && cut -c 2- foo
